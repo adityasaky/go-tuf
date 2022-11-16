@@ -136,10 +136,12 @@ Outputs the metadata file for a role in a ready-to-sign (canonicalized) format.
 
 See also `tuf sign-payload` and `tuf add-signatures`.
 
-#### `tuf sign-payload --role=<role> <path>`
+#### `tuf sign-payload [--role=<role>] [--key=<key>] <path>`
 
-Sign a file (outside of the TUF repo) using keys (in the TUF keys database,
-typically produced by `tuf gen-key`) for the given `role` (from the TUF repo).
+Sign a file outside of the TUF repo. If a key is explicitly specified, it is
+used. Otherwise, the keys for the given `role` from the TUF repo (in the TUF
+keys database, typically produced by `tuf gen-key`) are used. One of `--role`
+and `--key` must be set.
 
 Typically, `path` will be a file containing the output of `tuf payload`.
 
